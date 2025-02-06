@@ -30,3 +30,6 @@ class Queue:
             return True
         else:
             return False
+        
+    def size(self):
+        return self.items # type: ignore

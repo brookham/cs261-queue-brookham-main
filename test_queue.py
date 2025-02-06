@@ -3,7 +3,7 @@
 
 import unittest
 import time
-from queue import Queue
+from queue import Queue # type: ignore
 
 # Hint: Once test_has_linked_list_internal passes, uncomment this line.
 # Refer to https://ajakubek.github.io/python-llist/index.html for sllist documentation
@@ -185,16 +185,16 @@ class TestQueue(unittest.TestCase):
         self.assertFalse(q.is_empty())
 
    
-    # """
-    # Size
-    # """
+    """
+    Size
+    """
 
-    # def test_size0(self):
-    #     """
-    #     Test 17: A queue is initially empty.
-    #     """
-    #     q = Queue()
-    #     self.assertTrue(q.is_empty())
+    def test_size0(self):
+        """
+        Test 17: A queue is initially empty.
+        """
+        q = Queue()
+        self.assertTrue(q.is_empty())
 
 
     # def test_dequeue_from_an_empty_queue(self):  
