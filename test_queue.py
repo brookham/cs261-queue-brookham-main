@@ -197,105 +197,105 @@ class TestQueue(unittest.TestCase):
         self.assertTrue(q.is_empty())
 
 
-    # def test_dequeue_from_an_empty_queue(self):  
-    #     """
-    #     Test 18: Dequeueing from an empty queue raises ValueError. The size of the queue 
-    #     remains 0
-    #     """
-    #     q = Queue()
-    #     try:
-    #         q.dequeue()
-    #         self.fail("Did not raise an Exception")
-    #     except ValueError:
-    #         self.assertEqual(0, q.size())
+    def test_dequeue_from_an_empty_queue(self):  
+        """
+        Test 18: Dequeueing from an empty queue raises ValueError. The size of the queue 
+        remains 0
+        """
+        q = Queue()
+        try:
+            q.dequeue()
+            self.fail("Did not raise an Exception")
+        except ValueError:
+            self.assertEqual(0, q.size())
 
-    # def test_size_after_enqueues(self):
-    #     """
-    #     Test 19: Enqueueing a values increases the number of items in the queue.
-    #     """
-    #     q = Queue()
-    #     q.enqueue('fee')
-    #     self.assertEqual(1, q.size())
-    #     q.enqueue('fi')
-    #     self.assertEqual(2, q.size())
-    #     q.enqueue('fo')
-    #     self.assertEqual(3, q.size())
-    #     q.enqueue('fum')
-    #     self.assertEqual(4, q.size())
+    def test_size_after_enqueues(self):
+        """
+        Test 19: Enqueueing a values increases the number of items in the queue.
+        """
+        q = Queue()
+        q.enqueue('fee')
+        self.assertEqual(1, q.size())
+        q.enqueue('fi')
+        self.assertEqual(2, q.size())
+        q.enqueue('fo')
+        self.assertEqual(3, q.size())
+        q.enqueue('fum')
+        self.assertEqual(4, q.size())
 
-    # def test_size_after_dequeues(self):  
-    #     """
-    #     Test 20: Dequeueing a values increases the number of items in the queue.
-    #     """
-    #     q = Queue()
-    #     q.enqueue('fee')
-    #     q.enqueue('fi')
-    #     q.enqueue('fo')
-    #     q.enqueue('fum')
-    #     self.assertEqual(4, q.size())
-    #     q.dequeue()
-    #     self.assertEqual(3, q.size())
-    #     q.dequeue()
-    #     self.assertEqual(2, q.size())
-    #     q.dequeue()
-    #     self.assertEqual(1, q.size())
-    #     q.dequeue()
-    #     self.assertEqual(0, q.size())
+    def test_size_after_dequeues(self):  
+        """
+        Test 20: Dequeueing a values increases the number of items in the queue.
+        """
+        q = Queue()
+        q.enqueue('fee')
+        q.enqueue('fi')
+        q.enqueue('fo')
+        q.enqueue('fum')
+        self.assertEqual(4, q.size())
+        q.dequeue()
+        self.assertEqual(3, q.size())
+        q.dequeue()
+        self.assertEqual(2, q.size())
+        q.dequeue()
+        self.assertEqual(1, q.size())
+        q.dequeue()
+        self.assertEqual(0, q.size())
 
-    # """
-    # Algorithmic complexity
-    # """
+    """
+    Algorithmic complexity
+    """
 
-    # def test_enqueue_efficiency(self):
-    #     """
-    #     Test 21: Enqueing a value is always O(1).
-    #     """
-    #     time_samples = []
-    #     for _ in range(0, 1000):
-    #         q = Queue()
-    #         start_time = time.time()
-    #         q.enqueue('fake')
-    #         end_time = time.time()
-    #         time_samples.append(end_time - start_time)
-    #     small_average_enqueue_time = sum(time_samples) / float(len(time_samples))
+    def test_enqueue_efficiency(self):
+        """
+        Test 21: Enqueing a value is always O(1).
+        """
+        time_samples = []
+        for _ in range(0, 1000):
+            q = Queue()
+            start_time = time.time()
+            q.enqueue('fake')
+            end_time = time.time()
+            time_samples.append(end_time - start_time)
+        small_average_enqueue_time = sum(time_samples) / float(len(time_samples))
 
-    #     large_queue = Queue()
-    #     for _ in range(0, 1000000):
-    #         large_queue.enqueue('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_queue.enqueue('fake')
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
+        large_queue = Queue()
+        for _ in range(0, 1000000):
+            large_queue.enqueue('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_queue.enqueue('fake')
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
 
-    # def test_dequeue_efficiency(self):
-    #     """
-    #     Test 22: Dequeuing a value is always O(1).
-    #     """
-    #     time_samples = []
-    #     for _ in range(0, 1000):
-    #         q = Queue()
-    #         q.enqueue('fake')
-    #         start_time = time.time()
-    #         q.dequeue()
-    #         end_time = time.time()
-    #         time_samples.append(end_time - start_time)
-    #     small_average_dequeue_time = sum(time_samples) / float(len(time_samples))
+    def test_dequeue_efficiency(self):
+        """
+        Test 22: Dequeuing a value is always O(1).
+        """
+        time_samples = []
+        for _ in range(0, 1000):
+            q = Queue()
+            q.enqueue('fake')
+            start_time = time.time()
+            q.dequeue()
+            end_time = time.time()
+            time_samples.append(end_time - start_time)
+        small_average_dequeue_time = sum(time_samples) / float(len(time_samples))
 
-    #     large_queue = Queue()
-    #     for _ in range(0, 1000000):
-    #         large_queue.enqueue('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_queue.dequeue()
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
+        large_queue = Queue()
+        for _ in range(0, 1000000):
+            large_queue.enqueue('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_queue.dequeue()
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
 
 
 def fake_value():
